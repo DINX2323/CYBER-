@@ -1,0 +1,85 @@
+{
+  "seed": 42,
+  "budget": 2,
+  "training": 120,
+  "heldout": 240,
+  "objective": "Training detection rate minus training false-positive rate; ties keep deterministic candidate order.",
+  "disclaimer": "Synthetic route replay, not a real-world efficacy benchmark. All policies are evaluated on identical held-out routes. Detection means a route touches a decoy location; benign touches count as false alerts. A single seeded random placement is a baseline, not a statistical estimate over all random placements.",
+  "rows": [
+    {
+      "name": "Seeded random",
+      "placement": [
+        "shared",
+        "finance"
+      ],
+      "training": {
+        "attacks": 60,
+        "detected": 46,
+        "benign": 60,
+        "falseAlerts": 49,
+        "detectionRate": 0.7666666666666667,
+        "falsePositiveRate": 0.8166666666666667,
+        "meanSteps": 1.6521739130434783
+      },
+      "test": {
+        "attacks": 120,
+        "detected": 87,
+        "benign": 120,
+        "falseAlerts": 99,
+        "detectionRate": 0.725,
+        "falsePositiveRate": 0.825,
+        "meanSteps": 1.6206896551724137
+      }
+    },
+    {
+      "name": "Fixed sensitive areas",
+      "placement": [
+        "finance",
+        "backup"
+      ],
+      "training": {
+        "attacks": 60,
+        "detected": 43,
+        "benign": 60,
+        "falseAlerts": 23,
+        "detectionRate": 0.7166666666666667,
+        "falsePositiveRate": 0.38333333333333336,
+        "meanSteps": 2.0930232558139537
+      },
+      "test": {
+        "attacks": 120,
+        "detected": 85,
+        "benign": 120,
+        "falseAlerts": 45,
+        "detectionRate": 0.7083333333333334,
+        "falsePositiveRate": 0.375,
+        "meanSteps": 2.1176470588235294
+      }
+    },
+    {
+      "name": "Training-selected",
+      "placement": [
+        "backup",
+        "vault"
+      ],
+      "training": {
+        "attacks": 60,
+        "detected": 48,
+        "benign": 60,
+        "falseAlerts": 16,
+        "detectionRate": 0.8,
+        "falsePositiveRate": 0.26666666666666666,
+        "meanSteps": 2.6875
+      },
+      "test": {
+        "attacks": 120,
+        "detected": 104,
+        "benign": 120,
+        "falseAlerts": 26,
+        "detectionRate": 0.8666666666666667,
+        "falsePositiveRate": 0.21666666666666667,
+        "meanSteps": 2.7596153846153846
+      }
+    }
+  ]
+}
